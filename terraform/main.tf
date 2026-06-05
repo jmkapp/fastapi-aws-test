@@ -23,8 +23,8 @@ resource "aws_cognito_user_pool_client" "fastapi_client" {
   prevent_user_existence_errors = "ENABLED"
 }
 
-output "user_pool_client_id" {
-  value = aws_cognito_user_pool_client.fastapi_client.id
+resource "aws_ecr_repository" "fastapi_ecr" {
+  name = "fastapi-ecr"
 }
 
 resource "aws_cognito_user" "test_user" {

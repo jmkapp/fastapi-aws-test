@@ -14,3 +14,4 @@ Access in Windows browser with
 ```
 http://<WSL IP>:8080
 ```
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/Podman.html
