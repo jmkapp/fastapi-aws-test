@@ -36,7 +36,7 @@ resource "aws_ecs_task_definition" "app" {
     image     = "${aws_ecr_repository.fastapi_ecr.repository_url}:latest"
     essential = true
     portMappings = [{
-      containerPort = 8000
+      containerPort = 8080
       protocol      = "tcp"
     }]
   }])
@@ -60,8 +60,8 @@ resource "aws_security_group" "ecs_app" {
   vpc_id = data.aws_vpc.default.id
 
   ingress {
-    from_port   = 8000
-    to_port     = 8000
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

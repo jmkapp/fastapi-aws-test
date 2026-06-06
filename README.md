@@ -1,5 +1,7 @@
 # fastapi-aws-test
 
+https://fastapi.tiangolo.com/deployment/docker
+
 Start container with  
 ```
 podman run -d --name mycontainer -p 8080:80 myimage
