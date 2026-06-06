@@ -2,9 +2,12 @@
 
 https://fastapi.tiangolo.com/deployment/docker
 
+```
+podman build -t myimage .
+```
 Start container with  
 ```
-podman run -d --name mycontainer -p 8080:80 myimage
+podman run -d --name mycontainer -p 8080:8080 myimage
 ```
 Find out the WSL IP with  
 ```
