@@ -9,6 +9,7 @@ on:
 env:
   AWS_REGION: eu-west-2
   ECR_REPOSITORY: fastapi-ecr
+  IMAGE_TAG: latest
 
 jobs:
 
@@ -30,10 +31,19 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
+    - name: Delete existing latest image from ECR
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      run: |
+        aws ecr batch-delete-image \
+          --repository-name $ECR_REPOSITORY \
+          --image-ids imageTag=$IMAGE_TAG \
+          --region $AWS_REGION || true
+
     - name: Build, tag and push image to ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: "latest"
+        IMAGE_TAG: ${{ env.IMAGE_TAG }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
