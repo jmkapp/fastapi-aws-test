@@ -1,8 +1,3 @@
-variable "image_tag" {
-  type    = string
-  default = "latest"
-}
-
 # IAM role for ECS to pull from ECR
 resource "aws_iam_role" "ecs_task_execution" {
   name = "ecs-task-execution-role"
@@ -38,7 +33,7 @@ resource "aws_ecs_task_definition" "app" {
 
   container_definitions = jsonencode([{
     name      = "fastapi-app"
-    image     = "${aws_ecr_repository.fastapi_ecr.repository_url}:${var.image_tag}"
+    image     = "${aws_ecr_repository.fastapi_ecr.repository_url}:latest"
     essential = true
     portMappings = [{
       containerPort = 8000
