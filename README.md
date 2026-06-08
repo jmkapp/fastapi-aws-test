@@ -1,5 +1,9 @@
 # fastapi-aws-test
 
+Training project mainly to secure FastAPI with AWS Cognito but also taking in ECR/ECS containerisation, Terraform Infrastructure as Code and GitHub Actions.
+
+This is a WIP so may be a bit rough and unfinished at present.
+
 https://fastapi.tiangolo.com/deployment/docker
 
 ```
