@@ -1,6 +1,6 @@
 # fastapi-aws-test
 
-Training project mainly to secure FastAPI with AWS Cognito but also taking in ECR/ECS containerisation, Terraform Infrastructure as Code and GitHub Actions.
+Training project mainly to secure FastAPI with AWS Cognito but also taking in ECR/ECS containerisation, Terraform Infrastructure as Code and GitHub Actions. Coded with assistance from GitHub CoPilot.
 
 This is a WIP so may be a bit rough and unfinished at present.
 
