@@ -8,8 +8,8 @@ class Settings(BaseSettings):
     userpools: dict[str, dict[str, Any]] = {
         "eu": {
             "region": "eu-west-2",
-            "userpool_id": "eu-west-2_t16ZdBueZ",
-            "app_client_id": ["2tn9p6r23jq2ngsgfjciakkfg"]
+            "userpool_id": "eu-west-2_Yuoowbbup",
+            "app_client_id": ["7sjf4vgvcp30kafm09gekjpkov"]
         }
     }
 
