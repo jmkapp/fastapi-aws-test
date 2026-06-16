@@ -2,7 +2,7 @@
 
 Training project mainly to secure FastAPI with AWS Cognito but also taking in ECR/ECS containerisation, Terraform Infrastructure as Code and GitHub Actions. Coded with assistance from GitHub CoPilot.
 
-This is a WIP so may be a bit rough and unfinished at present.
+This is a WIP and these are my memory-jogging notes so may be a bit rough.
 
 https://fastapi.tiangolo.com/deployment/docker
 
@@ -28,6 +28,13 @@ aws cognito-idp create-user-pool-client \
 --user-pool-id eu-west-2_XXXXXXXXX \
 --client-name fastapi-client \
 --explicit-auth-flows ALLOW_USER_PASSWORD_AUTH ALLOW_REFRESH_TOKEN_AUTH
+```
+## Bootstrapping Terraform state file in an S3 bucket  
+```
+cd terraform-bootstrap
+terraform init
+terraform plan
+terraform apply
 ```
 ## Local
 ```
