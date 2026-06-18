@@ -22,6 +22,11 @@ resource "aws_ecs_cluster" "main" {
   name = "fastapi-cluster"
 }
 
+variable "image_tag" {
+  type    = string
+  default = "latest"
+}
+
 # Task Definition — points to ECR image
 resource "aws_ecs_task_definition" "app" {
   family                   = "fastapi-app"
@@ -33,7 +38,7 @@ resource "aws_ecs_task_definition" "app" {
 
   container_definitions = jsonencode([{
     name      = "fastapi-app"
-    image     = "${aws_ecr_repository.fastapi_ecr.repository_url}:latest"
+    image     = "${aws_ecr_repository.fastapi_ecr.repository_url}:${var.image_tag}"
     essential = true
     portMappings = [{
       containerPort = 8080

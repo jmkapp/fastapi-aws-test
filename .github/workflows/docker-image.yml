@@ -47,3 +47,11 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+    - name: Deploy to ECS via Terraform
+      env:
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        cd terraform
+        terraform init
+        terraform apply -auto-approve -var="image_tag=$IMAGE_TAG"
