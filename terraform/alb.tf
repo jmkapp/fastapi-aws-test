@@ -33,7 +33,7 @@ resource "aws_lb_target_group" "app" {
   vpc_id      = data.aws_vpc.default.id
 
   health_check {
-    path                = "/"
+    path                = "/health"
     matcher             = "200"
     healthy_threshold   = 2
     unhealthy_threshold = 2
