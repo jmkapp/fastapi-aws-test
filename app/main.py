@@ -10,6 +10,10 @@ cognito_eu = CognitoAuth(
 
 app = FastAPI()
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
 @app.get("/")
 async def root(auth: CognitoToken = Depends(cognito_eu.auth_required)):
     return {"message": "Hello World"}
